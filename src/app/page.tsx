@@ -11,6 +11,7 @@ import {
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 import EaMark from "@/components/ui/EaMark";
+import Parallax from "@/components/ui/Parallax";
 import Reveal from "@/components/ui/Reveal";
 import VentureMarquee from "@/components/ui/VentureMarquee";
 import EmailSignup from "@/components/ui/EmailSignup";
@@ -23,22 +24,31 @@ export default function HomePage() {
     <>
       {/* ============ HERO: the varsity poster ============ */}
       <section className="relative overflow-hidden bg-forest text-white">
+        {/* screen-print keyart, right edge, slow parallax drift */}
         <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            maskImage: "linear-gradient(to left, black 55%, transparent 85%)",
-            WebkitMaskImage:
-              "linear-gradient(to left, black 55%, transparent 85%)",
-          }}
+          className="art-fade-left pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] lg:block"
+          aria-hidden="true"
         >
-          <EaMark className="absolute -right-24 top-1/2 h-[150%] w-auto -translate-y-1/2 text-white/[0.05] sm:-right-16" />
+          <Parallax speed={-0.06} className="h-full">
+            <img
+              src={asset("/images/art/hero-1400.jpg")}
+              alt=""
+              loading="lazy"
+              className="h-[115%] w-full object-cover object-right"
+            />
+          </Parallax>
+          <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/25 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-forest/80 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-forest to-transparent" />
         </div>
         <div className="container-x relative py-24 sm:py-32 lg:py-40">
           <Reveal>
             <p className="eyebrow text-mint">
               {BRAND.university} · Est. {BRAND.founded}
             </p>
-            <h1 className="display mt-6 text-[clamp(3.4rem,10vw,8rem)]">
+          </Reveal>
+          <Reveal delay={90}>
+            <h1 className="display mt-6 text-[clamp(2.55rem,10vw,8rem)]">
               Where Spartans
               <br />
               <span className="text-mint">Build</span>
@@ -46,12 +56,16 @@ export default function HomePage() {
               <br />
               next.
             </h1>
+          </Reveal>
+          <Reveal delay={200}>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-fog sm:text-xl">
               MSUEA is Michigan State&apos;s student community for
               entrepreneurship. Speaker nights, pitch competitions,
               workshops, and trips that turn ideas into ventures. No startup
               experience required.
             </p>
+          </Reveal>
+          <Reveal delay={300}>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="/join/" className="btn btn-solid text-base">
                 Join MSUEA
@@ -62,6 +76,14 @@ export default function HomePage() {
               </Link>
             </div>
           </Reveal>
+        </div>
+        {/* keyart banner on small screens */}
+        <div className="lg:hidden" aria-hidden="true">
+          <img
+            src={asset("/images/art/hero-900.jpg")}
+            alt=""
+            className="h-48 w-full object-cover object-center sm:h-64"
+          />
         </div>
         {/* fact strip */}
         <div className="relative border-t border-white/10">
@@ -121,20 +143,30 @@ export default function HomePage() {
               >
                 <Link
                   href="/programs/"
-                  className="notch group flex h-full min-h-[210px] flex-col justify-between border-t-4 border-kelly bg-white p-7 transition-transform duration-300 hover:-translate-y-1"
+                  className="notch group flex h-full flex-col border-t-4 border-kelly bg-white transition-transform duration-300 hover:-translate-y-1"
                 >
-                  <div>
-                    <h3 className="display text-2xl text-forest group-hover:text-kelly">
-                      {program.name}
-                    </h3>
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-body">
-                      {program.blurb}
-                    </p>
+                  <div className="h-32 overflow-hidden">
+                    <img
+                      src={asset(program.artWide ?? program.art)}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                  <span className="link-arrow mt-6 text-[0.8rem]">
-                    Learn more
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+                  <div className="flex grow flex-col justify-between p-7">
+                    <div>
+                      <h3 className="display text-2xl text-forest group-hover:text-kelly">
+                        {program.name}
+                      </h3>
+                      <p className="mt-3 text-[0.95rem] leading-relaxed text-body">
+                        {program.blurb}
+                      </p>
+                    </div>
+                    <span className="link-arrow mt-6 text-[0.8rem]">
+                      Learn more
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
                 </Link>
               </Reveal>
             ))}
@@ -279,8 +311,14 @@ export default function HomePage() {
         <div className="container-x relative">
           <Reveal>
             <p className="eyebrow text-mint">What membership looks like</p>
-            <blockquote className="mt-7 max-w-4xl font-body text-2xl italic leading-snug text-white sm:text-3xl">
-              &ldquo;{MEMBERSHIP_QUOTE}&rdquo;
+            <span
+              aria-hidden="true"
+              className="display mt-8 block text-8xl leading-[0.5] text-putty/60"
+            >
+              &ldquo;
+            </span>
+            <blockquote className="mt-4 max-w-3xl font-body text-2xl italic leading-snug text-white sm:text-3xl lg:text-4xl">
+              {MEMBERSHIP_QUOTE}
             </blockquote>
             <div className="mt-9">
               <Link href="/join/" className="btn btn-solid">
@@ -335,8 +373,29 @@ export default function HomePage() {
                 href={`mailto:${BRAND.sponsorEmail}`}
                 className="btn btn-forest shrink-0"
               >
-                {BRAND.sponsorEmail}
+                Email Ethan
               </a>
+            </div>
+          </Reveal>
+          <Reveal className="mt-10">
+            <div className="flex items-center gap-5">
+              <img
+                src={asset("/images/msu-helmet.svg")}
+                alt="Michigan State University Spartan helmet"
+                className="h-12 w-auto shrink-0"
+              />
+              <p className="max-w-xl text-sm leading-relaxed text-body">
+                MSUEA is a registered student organization at{" "}
+                <a
+                  href="https://msu.edu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-forest underline decoration-line underline-offset-2 hover:text-kelly"
+                >
+                  Michigan State University
+                </a>
+                , proudly part of the Spartan community since {BRAND.founded}.
+              </p>
             </div>
           </Reveal>
         </div>

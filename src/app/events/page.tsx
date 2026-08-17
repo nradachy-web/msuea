@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Mail, Megaphone, Users } from "lucide-react";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { BRAND, UPCOMING_EVENTS } from "@/lib/constants";
+import { asset } from "@/lib/asset";
 import EaMark from "@/components/ui/EaMark";
+import Parallax from "@/components/ui/Parallax";
 import Reveal from "@/components/ui/Reveal";
 import EmailSignup from "@/components/ui/EmailSignup";
 import JoinCta from "@/components/ui/JoinCta";
@@ -55,38 +57,58 @@ export default function EventsPage() {
               Locked in
             </h2>
           </Reveal>
-          <div className="mt-12 space-y-5">
-            {UPCOMING_EVENTS.map((event, i) => (
-              <Reveal key={event.date + event.title} delay={i * 70}>
-                <article className="notch flex flex-col gap-6 border-t-4 border-kelly bg-white p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-9">
-                  <div className="display flex w-24 shrink-0 flex-col items-center bg-forest px-4 py-5 text-white">
-                    <span className="text-sm tracking-[0.2em] text-mint">
-                      {event.dateDisplay.month}
-                    </span>
-                    <span className="text-5xl">{event.dateDisplay.day}</span>
-                  </div>
-                  <div>
-                    <h3 className="display text-3xl text-forest sm:text-4xl">
-                      {event.title}
-                    </h3>
-                    <p className="mt-2 max-w-2xl leading-relaxed text-body">
-                      {event.description}
-                    </p>
-                    <p className="display mt-4 text-[0.8rem] tracking-[0.12em] text-kelly">
-                      {event.dateDisplay.weekday} · {event.note}
-                    </p>
-                  </div>
-                </article>
+          <div className="mt-12 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+            <div>
+              <div className="space-y-5">
+                {UPCOMING_EVENTS.map((event, i) => (
+                  <Reveal key={event.date + event.title} delay={i * 70}>
+                    <article className="notch flex flex-col gap-6 border-t-4 border-kelly bg-white p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-9">
+                      <div className="display flex w-24 shrink-0 flex-col items-center bg-forest px-4 py-5 text-white">
+                        <span className="text-sm tracking-[0.2em] text-mint">
+                          {event.dateDisplay.month}
+                        </span>
+                        <span className="text-5xl">{event.dateDisplay.day}</span>
+                      </div>
+                      <div>
+                        <h3 className="display text-3xl text-forest sm:text-4xl">
+                          {event.title}
+                        </h3>
+                        <p className="mt-2 max-w-2xl leading-relaxed text-body">
+                          {event.description}
+                        </p>
+                        <p className="display mt-4 text-[0.8rem] tracking-[0.12em] text-kelly">
+                          {event.dateDisplay.weekday} · {event.note}
+                        </p>
+                      </div>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+              <Reveal className="mt-10" delay={100}>
+                <p className="max-w-2xl text-muted">
+                  More is on the way. The full fall calendar is being finalized,
+                  and every new date is announced on {BRAND.instagramHandle} and
+                  the email list before it appears here.
+                </p>
               </Reveal>
-            ))}
+            </div>
+            {/* framed screen-print, drifting gently */}
+            <Reveal delay={150}>
+              <Parallax speed={0.05}>
+                <figure className="notch bg-white p-3">
+                  <img
+                    src={asset("/images/art/events-1200.jpg")}
+                    alt=""
+                    loading="lazy"
+                    className="aspect-[4/3.5] w-full object-cover"
+                  />
+                  <figcaption className="display mt-3 px-1 pb-1 text-[0.8rem] tracking-[0.12em] text-kelly">
+                    Every drop starts loud.
+                  </figcaption>
+                </figure>
+              </Parallax>
+            </Reveal>
           </div>
-          <Reveal className="mt-10" delay={100}>
-            <p className="max-w-2xl text-muted">
-              More is on the way. The full fall calendar is being finalized,
-              and every new date is announced on {BRAND.instagramHandle} and
-              the email list before it appears here.
-            </p>
-          </Reveal>
         </div>
       </section>
 

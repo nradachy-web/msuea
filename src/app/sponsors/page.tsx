@@ -41,11 +41,11 @@ export default function SponsorsPage() {
     <>
       <PageHero
         eyebrow="Sponsors & partners"
+        art="/images/art/sponsors-1400.jpg"
         title={
           <>
-            Put your brand
-            <br />
-            behind the builders
+            Put your brand{" "}
+            <span className="sm:block">behind the builders</span>
           </>
         }
         intro={
@@ -154,7 +154,7 @@ export default function SponsorsPage() {
                 className="btn btn-solid text-base"
               >
                 <Mail className="h-5 w-5" />
-                {BRAND.sponsorEmail}
+                Email Ethan
               </a>
               <Link href="/contact/" className="btn btn-outline-light text-base">
                 More ways to reach us

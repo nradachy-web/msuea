@@ -95,7 +95,7 @@ export default function BoardPage() {
         </div>
       </section>
 
-      <JoinCta />
+      <JoinCta focal="right" />
     </>
   );
 }

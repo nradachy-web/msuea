@@ -59,6 +59,10 @@ export type Program = {
   slug: string;
   name: string;
   blurb: string;
+  /** Screen-print spot illustration, generated in the brand style. */
+  art: string;
+  /** Optional recrop for wide (landscape strip) placements. */
+  artWide?: string;
 };
 
 /** Blurbs adapted from the club's own program descriptions. */
@@ -68,30 +72,36 @@ export const PROGRAMS: Program[] = [
     name: "Speaker Series",
     blurb:
       "Learn from successful founders, entrepreneurs, investors, and industry leaders as they share their experiences, insights, and advice.",
+    art: "/images/art/spot-speakers.jpg",
   },
   {
     slug: "pitch-competitions",
     name: "Pitch Competitions",
     blurb:
       "Present your business ideas, receive valuable feedback from experienced judges, and compete for funding, prizes, and recognition.",
+    art: "/images/art/spot-pitch.jpg",
   },
   {
     slug: "networking-nights",
     name: "Networking Nights",
     blurb:
       "Build meaningful connections with students, alumni, entrepreneurs, investors, and professionals from a variety of industries.",
+    art: "/images/art/spot-network.jpg",
   },
   {
     slug: "workshops",
     name: "Workshops",
     blurb:
       "Develop practical entrepreneurial skills through interactive sessions on topics like branding, marketing, finance, leadership, and launching a business.",
+    art: "/images/art/spot-workshops.jpg",
   },
   {
     slug: "trips",
     name: "Regional & National Trips",
     blurb:
       "Travel to entrepreneurial hubs across the region and country to visit startups, incubators, and venture firms while experiencing different entrepreneurial ecosystems firsthand.",
+    art: "/images/art/spot-trips.jpg",
+    artWide: "/images/art/spot-trips-wide.jpg",
   },
 ];
 

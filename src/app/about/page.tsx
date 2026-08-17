@@ -127,6 +127,41 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ============ PROUDLY SPARTAN ============ */}
+      <section className="bg-white py-14 sm:py-16">
+        <div className="container-x">
+          <Reveal>
+            <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8">
+              <img
+                src={asset("/images/msu-helmet.svg")}
+                alt="Michigan State University Spartan helmet"
+                className="h-14 w-auto shrink-0 sm:h-16"
+                loading="lazy"
+              />
+              <div
+                className="hidden self-stretch border-l border-line sm:block"
+                aria-hidden="true"
+              />
+              <div>
+                <p className="eyebrow">Proudly Spartan</p>
+                <p className="mt-2 max-w-xl leading-relaxed text-body">
+                  MSUEA is a registered student organization at{" "}
+                  <a
+                    href="https://msu.edu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-forest underline decoration-line underline-offset-2 hover:text-kelly"
+                  >
+                    Michigan State University
+                  </a>
+                  , part of the Spartan community since {BRAND.founded}.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ TROPHY WALL: SPARTANS HAVE BUILT ============ */}
       <section className="relative overflow-hidden bg-forest py-20 text-white sm:py-28">
         <EaMark className="pointer-events-none absolute -right-24 top-1/2 h-[150%] w-auto -translate-y-1/2 text-white/[0.05]" />
@@ -157,7 +192,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <JoinCta />
+      <JoinCta focal="right" />
     </>
   );
 }

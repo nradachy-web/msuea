@@ -27,6 +27,7 @@ export default function JoinPage() {
       <PageHero
         eyebrow="Join MSUEA"
         title="Three steps and you're in"
+        art="/images/art/join-1400.jpg"
         intro={
           <>
             MSUEA is open to every major and every experience level, no
@@ -143,8 +144,14 @@ export default function JoinPage() {
         <div className="container-x relative">
           <Reveal>
             <p className="eyebrow text-mint">What membership looks like</p>
-            <blockquote className="mt-7 max-w-4xl font-body text-2xl italic leading-snug text-white sm:text-3xl">
-              &ldquo;{MEMBERSHIP_QUOTE}&rdquo;
+            <span
+              aria-hidden="true"
+              className="display mt-8 block text-8xl leading-[0.5] text-putty/60"
+            >
+              &ldquo;
+            </span>
+            <blockquote className="mt-4 max-w-3xl font-body text-2xl italic leading-snug text-white sm:text-3xl lg:text-4xl">
+              {MEMBERSHIP_QUOTE}
             </blockquote>
           </Reveal>
         </div>

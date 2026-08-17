@@ -153,7 +153,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <JoinCta />
+      <JoinCta focal="left" />
     </>
   );
 }

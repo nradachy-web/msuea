@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  Calendar,
-  Map,
-  Mic,
-  Sparkles,
-  Trophy,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+import { Calendar } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/BrandIcons";
 import { BRAND, PROGRAMS } from "@/lib/constants";
+import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 import PageHero from "@/components/ui/PageHero";
+import Parallax from "@/components/ui/Parallax";
 import Reveal from "@/components/ui/Reveal";
 import JoinCta from "@/components/ui/JoinCta";
 
@@ -21,15 +15,6 @@ export const metadata: Metadata = {
   description:
     "Five MSUEA programs at Michigan State: speaker series, pitch competitions, networking nights, workshops, and regional and national trips. Open to every major.",
   alternates: { canonical: "/programs/" },
-};
-
-/** Interface icon for each program, keyed by the slug in constants. */
-const PROGRAM_ICONS: Record<string, LucideIcon> = {
-  "speaker-series": Mic,
-  "pitch-competitions": Trophy,
-  "networking-nights": Users,
-  workshops: Sparkles,
-  trips: Map,
 };
 
 export default function ProgramsPage() {
@@ -64,7 +49,6 @@ export default function ProgramsPage() {
 
           <div className="mt-8 divide-y divide-line sm:mt-12">
             {PROGRAMS.map((program, i) => {
-              const Icon = PROGRAM_ICONS[program.slug] ?? Sparkles;
               const flipped = i % 2 === 1;
               return (
                 <Reveal
@@ -75,17 +59,25 @@ export default function ProgramsPage() {
                     flipped ? "md:flex-row-reverse" : "md:flex-row",
                   )}
                 >
-                  <div
-                    className={cn(
-                      "notch-lg flex h-28 w-28 shrink-0 items-center justify-center bg-forest text-white sm:h-36 sm:w-36",
-                      flipped ? "notch-tl" : "notch",
-                    )}
+                  <Parallax
+                    speed={0.04}
+                    className="w-full shrink-0 md:w-[260px] lg:w-[300px]"
                   >
-                    <Icon
-                      className="h-11 w-11 sm:h-14 sm:w-14"
-                      strokeWidth={1.5}
-                    />
-                  </div>
+                    <div
+                      aria-hidden="true"
+                      className={cn(
+                        "notch-lg bg-forest",
+                        flipped ? "notch-tl" : "notch",
+                      )}
+                    >
+                      <img
+                        src={asset(program.art)}
+                        alt=""
+                        loading="lazy"
+                        className="h-48 w-full object-cover md:aspect-square md:h-auto"
+                      />
+                    </div>
+                  </Parallax>
                   <div className="flex-1">
                     <h3 className="display text-3xl text-forest sm:text-4xl">
                       {program.name}
@@ -136,7 +128,7 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      <JoinCta />
+      <JoinCta focal="left" />
     </>
   );
 }

@@ -1,17 +1,47 @@
 import Link from "next/link";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { BRAND } from "@/lib/constants";
-import EaMark from "@/components/ui/EaMark";
+import { asset } from "@/lib/asset";
+import { cn } from "@/lib/utils";
+import Parallax from "@/components/ui/Parallax";
 import Reveal from "@/components/ui/Reveal";
 
+const FOCALS = {
+  left: "object-[22%_center]",
+  center: "object-center",
+  right: "object-[78%_center]",
+} as const;
+
 /**
- * Closing band used across the site: one clear next step.
+ * Closing band used across the site: one clear next step, set over
+ * the "hands raising shapes" poster art with a forest scrim so the
+ * type keeps full contrast. Each page passes a different `focal`
+ * crop so the recurring band reads as a motif, not a paste.
  */
-export default function JoinCta() {
+export default function JoinCta({
+  focal = "center",
+}: {
+  focal?: keyof typeof FOCALS;
+}) {
   return (
     <section className="relative overflow-hidden bg-forest text-white">
-      <EaMark className="pointer-events-none absolute -left-20 top-1/2 h-[160%] w-auto -translate-y-1/2 text-white/[0.05]" />
-      <div className="container-x relative py-20 text-center sm:py-28">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <Parallax speed={-0.06} className="h-full">
+          <img
+            src={asset("/images/art/join-900.jpg")}
+            srcSet={`${asset("/images/art/join-900.jpg")} 900w, ${asset(
+              "/images/art/join-1400.jpg",
+            )} 1400w`}
+            sizes="100vw"
+            alt=""
+            className={cn("h-[120%] w-full object-cover", FOCALS[focal])}
+            loading="lazy"
+          />
+        </Parallax>
+        <div className="absolute inset-0 bg-forest/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-forest via-transparent to-forest/60" />
+      </div>
+      <div className="container-x relative py-24 text-center sm:py-32">
         <Reveal>
           <p className="eyebrow justify-center text-mint">
             Open to every major
