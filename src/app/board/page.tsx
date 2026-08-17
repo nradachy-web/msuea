@@ -17,7 +17,7 @@ export default function BoardPage() {
   return (
     <>
       <PageHero
-        eyebrow="2026/2027"
+        eyebrow="The 2026/2027 roster"
         title="The executive board"
         intro="The student team behind MSUEA, planning the speaker nights, pitch competitions, workshops, and trips that fill the calendar."
       />
@@ -30,13 +30,19 @@ export default function BoardPage() {
             {BOARD.map((member, i) => (
               <Reveal as="li" key={member.name} delay={(i % 3) * 70} className="h-full">
                 <article className="flex h-full flex-col border-t-4 border-kelly bg-white">
-                  <div className="notch">
+                  <div className="notch relative">
                     <img
                       src={asset(member.photo)}
                       alt={member.name}
                       className="aspect-[4/5] w-full object-cover"
                       loading="lazy"
                     />
+                    <span
+                      aria-hidden="true"
+                      className="display absolute right-3 top-1 text-6xl text-white/60 [text-shadow:0_1px_14px_rgba(15,42,35,0.55)]"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                   </div>
                   <div className="p-6 pb-5">
                     <p className="display text-[0.75rem] tracking-[0.16em] text-kelly">

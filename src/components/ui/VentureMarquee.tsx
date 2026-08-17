@@ -1,5 +1,5 @@
 import { VENTURES } from "@/lib/constants";
-import EaMark from "@/components/ui/EaMark";
+import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import { cn } from "@/lib/utils";
 
 function Row({ hidden }: { hidden?: boolean }) {
@@ -13,7 +13,7 @@ function Row({ hidden }: { hidden?: boolean }) {
           <span className="display whitespace-nowrap px-6 text-3xl text-forest sm:px-8 sm:text-4xl">
             {name}
           </span>
-          <EaMark className="h-4 w-auto shrink-0 text-putty" />
+          <SpartanHelmet className="h-5 w-auto shrink-0 text-sage/50" />
         </span>
       ))}
     </div>

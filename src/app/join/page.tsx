@@ -3,7 +3,7 @@ import { Mail } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { BRAND, JOIN_STEPS, MEMBERSHIP_QUOTE } from "@/lib/constants";
 import { asset } from "@/lib/asset";
-import EaMark from "@/components/ui/EaMark";
+import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import EmailSignup from "@/components/ui/EmailSignup";
@@ -140,7 +140,7 @@ export default function JoinPage() {
 
       {/* ============ MEMBERSHIP, in the club's own words ============ */}
       <section className="relative overflow-hidden bg-forest py-20 text-white sm:py-28">
-        <EaMark className="pointer-events-none absolute -left-24 -bottom-16 h-[120%] w-auto text-white/[0.05]" />
+        <SpartanHelmet className="pointer-events-none absolute -left-16 -bottom-24 h-[130%] w-auto text-white/[0.04]" />
         <div className="container-x relative">
           <Reveal>
             <p className="eyebrow text-mint">What membership looks like</p>

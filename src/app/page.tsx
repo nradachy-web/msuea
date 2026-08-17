@@ -4,6 +4,7 @@ import { InstagramIcon, WhatsAppIcon } from "@/components/ui/BrandIcons";
 import {
   BRAND,
   PROGRAMS,
+  TICKER_ITEMS,
   UPCOMING_EVENTS,
   SPONSORS,
   MEMBERSHIP_QUOTE,
@@ -11,6 +12,8 @@ import {
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 import EaMark from "@/components/ui/EaMark";
+import SpartanHelmet from "@/components/ui/SpartanHelmet";
+import Ticker from "@/components/ui/Ticker";
 import Parallax from "@/components/ui/Parallax";
 import Reveal from "@/components/ui/Reveal";
 import VentureMarquee from "@/components/ui/VentureMarquee";
@@ -22,11 +25,11 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ============ HERO: the varsity poster ============ */}
+      {/* ============ HERO: gameday poster ============ */}
       <section className="relative overflow-hidden bg-forest text-white">
-        {/* screen-print keyart, right edge, slow parallax drift */}
+        {/* cinematic keyart: right panel on desktop, full-bleed on mobile */}
         <div
-          className="art-fade-left pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] lg:block"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[62%] lg:block"
           aria-hidden="true"
         >
           <Parallax speed={-0.06} className="h-full">
@@ -37,24 +40,37 @@ export default function HomePage() {
               className="h-[115%] w-full object-cover object-right"
             />
           </Parallax>
-          <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/40 to-transparent" />
           <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-forest/80 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-forest to-transparent" />
         </div>
-        <div className="container-x relative py-24 sm:py-32 lg:py-40">
+        <div className="pointer-events-none absolute inset-0 lg:hidden" aria-hidden="true">
+          <img
+            src={asset("/images/art/hero-900.jpg")}
+            alt=""
+            className="h-full w-full object-cover object-[72%_center]"
+          />
+          <div className="absolute inset-0 bg-forest/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/40 to-forest/70" />
+        </div>
+        <div className="container-x relative py-20 sm:py-28 lg:py-36">
           <Reveal>
             <p className="eyebrow text-mint">
+              <SpartanHelmet className="h-5 w-auto" />
               {BRAND.university} · Est. {BRAND.founded}
             </p>
           </Reveal>
           <Reveal delay={90}>
-            <h1 className="display mt-6 text-[clamp(2.55rem,10vw,8rem)]">
-              Where Spartans
-              <br />
-              <span className="text-mint">Build</span>
-              {" what's"}
-              <br />
-              next.
+            <h1 className="display mt-6">
+              <span className="block text-[clamp(2.1rem,5.4vw,4.3rem)]">
+                Where Spartans
+              </span>
+              <span className="display-outline block text-[clamp(4.6rem,13vw,10.5rem)]">
+                Build
+              </span>
+              <span className="block text-[clamp(2.1rem,5.4vw,4.3rem)]">
+                what&apos;s <span className="text-mint">next.</span>
+              </span>
             </h1>
           </Reveal>
           <Reveal delay={200}>
@@ -77,28 +93,10 @@ export default function HomePage() {
             </div>
           </Reveal>
         </div>
-        {/* keyart banner on small screens */}
-        <div className="lg:hidden" aria-hidden="true">
-          <img
-            src={asset("/images/art/hero-900.jpg")}
-            alt=""
-            className="h-48 w-full object-cover object-center sm:h-64"
-          />
-        </div>
-        {/* fact strip */}
-        <div className="relative border-t border-white/10">
-          <div className="container-x flex flex-wrap items-center gap-x-10 gap-y-2 py-5 text-[0.85rem] tracking-[0.12em]">
-            {["EST. 2006", "OPEN TO EVERY MAJOR", "SPEAKERS · PITCHES · TRIPS"].map(
-              (fact) => (
-                <span key={fact} className="display flex items-center gap-3 text-fog">
-                  <EaMark className="h-3 w-auto text-mint" />
-                  {fact}
-                </span>
-              ),
-            )}
-          </div>
-        </div>
       </section>
+
+      {/* stadium ribbon */}
+      <Ticker items={TICKER_ITEMS} />
 
       {/* ============ VENTURES MARQUEE ============ */}
       <section
@@ -122,7 +120,7 @@ export default function HomePage() {
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="eyebrow">What we do</p>
-              <h2 className="display mt-4 max-w-xl text-5xl text-ink sm:text-6xl">
+              <h2 className="display mt-4 max-w-xl text-5xl text-ink sm:text-7xl">
                 Five ways in
               </h2>
             </div>
@@ -197,7 +195,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={100}>
             <p className="eyebrow">Since {BRAND.founded}</p>
-            <h2 className="display mt-4 text-5xl text-ink sm:text-6xl">
+            <h2 className="display mt-4 text-5xl text-ink sm:text-7xl">
               A community
               <br />
               for builders
@@ -235,7 +233,7 @@ export default function HomePage() {
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="eyebrow">On the calendar</p>
-              <h2 className="display mt-4 text-5xl text-ink sm:text-6xl">
+              <h2 className="display mt-4 text-5xl text-ink sm:text-7xl">
                 Up next
               </h2>
             </div>
@@ -307,7 +305,7 @@ export default function HomePage() {
 
       {/* ============ MEMBERSHIP, in the club's own words ============ */}
       <section className="relative overflow-hidden bg-forest py-20 text-white sm:py-28">
-        <EaMark className="pointer-events-none absolute -left-24 -bottom-16 h-[120%] w-auto text-white/[0.05]" />
+        <SpartanHelmet className="pointer-events-none absolute -right-16 -bottom-24 h-[130%] w-auto text-white/[0.04]" />
         <div className="container-x relative">
           <Reveal>
             <p className="eyebrow text-mint">What membership looks like</p>
@@ -336,7 +334,7 @@ export default function HomePage() {
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="eyebrow">Backed by</p>
-              <h2 className="display mt-4 text-5xl text-ink sm:text-6xl">
+              <h2 className="display mt-4 text-5xl text-ink sm:text-7xl">
                 Sponsors &amp; partners
               </h2>
             </div>
@@ -379,10 +377,9 @@ export default function HomePage() {
           </Reveal>
           <Reveal className="mt-10">
             <div className="flex items-center gap-5">
-              <img
-                src={asset("/images/msu-helmet.svg")}
-                alt="Michigan State University Spartan helmet"
-                className="h-12 w-auto shrink-0"
+              <SpartanHelmet
+                title="Michigan State University Spartan helmet"
+                className="h-12 w-auto shrink-0 text-forest"
               />
               <p className="max-w-xl text-sm leading-relaxed text-body">
                 MSUEA is a registered student organization at{" "}

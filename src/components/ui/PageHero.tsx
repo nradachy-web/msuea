@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import EaMark from "@/components/ui/EaMark";
+import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import Parallax from "@/components/ui/Parallax";
 import { asset } from "@/lib/asset";
 
@@ -55,8 +56,11 @@ export default function PageHero({
         </Parallax>
       )}
       <div className="container-x relative py-20 sm:py-28">
-        <p className="eyebrow text-mint">{eyebrow}</p>
-        <h1 className="display mt-5 max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
+        <p className="eyebrow text-mint">
+          <SpartanHelmet className="h-4 w-auto" />
+          {eyebrow}
+        </p>
+        <h1 className="display mt-5 max-w-4xl text-5xl sm:text-7xl lg:text-8xl">
           {title}
         </h1>
         {intro ? (

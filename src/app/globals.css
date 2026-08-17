@@ -95,6 +95,22 @@ body {
     text-wrap: balance;
   }
 
+  /* varsity outline type: hollow Norwester with a white stroke */
+  .display-outline {
+    color: transparent;
+    -webkit-text-stroke: 2.5px #fff;
+  }
+  @media (max-width: 640px) {
+    .display-outline {
+      -webkit-text-stroke: 1.5px #fff;
+    }
+  }
+  @supports not (-webkit-text-stroke: 1px black) {
+    .display-outline {
+      color: #fff;
+    }
+  }
+
   /* eyebrow: small Norwester label with a kelly tick */
   .eyebrow {
     display: inline-flex;

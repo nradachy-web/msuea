@@ -46,6 +46,16 @@ export const SEO = {
   },
 } as const;
 
+/** Stadium ribbon ticker lines. The display class uppercases them. */
+export const TICKER_ITEMS = [
+  "Go green",
+  "Go white",
+  "Est. 2006",
+  "Open to every major",
+  "Build something",
+  "East Lansing, MI",
+] as const;
+
 export const NAV = [
   { label: "About", href: "/about/" },
   { label: "Programs", href: "/programs/" },

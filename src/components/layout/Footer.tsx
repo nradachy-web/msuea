@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Mail } from "lucide-react";
 import { BRAND, NAV } from "@/lib/constants";
 import EaMark from "@/components/ui/EaMark";
+import SpartanHelmet from "@/components/ui/SpartanHelmet";
+import StripeBar from "@/components/ui/StripeBar";
 import {
   InstagramIcon,
   LinkedinIcon,
@@ -18,6 +20,7 @@ const SOCIALS = [
 export default function Footer() {
   return (
     <footer className="bg-pine text-white">
+      <StripeBar />
       <div className="container-x grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
@@ -31,6 +34,10 @@ export default function Footer() {
           <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-fog">
             {BRAND.tagline} Open to every major at {BRAND.university} since{" "}
             {BRAND.founded}.
+          </p>
+          <p className="display mt-6 flex items-center gap-2.5 text-sm tracking-[0.2em] text-mint">
+            <SpartanHelmet className="h-5 w-auto" />
+            Go green. Go white.
           </p>
           <div className="mt-6 flex gap-3">
             {SOCIALS.map(({ label, href, Icon }) => (

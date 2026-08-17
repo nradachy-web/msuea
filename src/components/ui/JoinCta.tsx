@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { BRAND } from "@/lib/constants";
 import { asset } from "@/lib/asset";
@@ -43,10 +44,11 @@ export default function JoinCta({
       </div>
       <div className="container-x relative py-24 text-center sm:py-32">
         <Reveal>
-          <p className="eyebrow justify-center text-mint">
+          <SpartanHelmet className="mx-auto h-12 w-auto text-mint" />
+          <p className="eyebrow mt-6 justify-center text-mint">
             Open to every major
           </p>
-          <h2 className="display mx-auto mt-5 max-w-3xl text-5xl sm:text-6xl">
+          <h2 className="display mx-auto mt-5 max-w-3xl text-5xl sm:text-7xl">
             Come build with us
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-fog">
