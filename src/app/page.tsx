@@ -13,6 +13,7 @@ import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 import DaysOut from "@/components/ui/DaysOut";
 import EaMark from "@/components/ui/EaMark";
+import HeroVideo from "@/components/ui/HeroVideo";
 import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import Ticker from "@/components/ui/Ticker";
 import Parallax from "@/components/ui/Parallax";
@@ -20,6 +21,12 @@ import Reveal from "@/components/ui/Reveal";
 import VentureMarquee from "@/components/ui/VentureMarquee";
 import EmailSignup from "@/components/ui/EmailSignup";
 import JoinCta from "@/components/ui/JoinCta";
+
+const HERO_CLIPS = [
+  "/videos/statue-dolly.mp4",
+  "/videos/statue-pan.mp4",
+  "/videos/statue-rise.mp4",
+];
 
 export default function HomePage() {
   const nextEvent = UPCOMING_EVENTS[0];
@@ -41,6 +48,11 @@ export default function HomePage() {
               className="hero-zoom h-[115%] w-full object-cover object-right"
             />
           </Parallax>
+          <HeroVideo
+            clips={HERO_CLIPS}
+            media="(min-width: 1024px)"
+            objectPosition="object-right"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/40 to-transparent" />
           <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-forest/80 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-forest to-transparent" />
@@ -50,6 +62,11 @@ export default function HomePage() {
             src={asset("/images/art/hero-900.jpg")}
             alt=""
             className="hero-zoom h-full w-full object-cover object-[72%_center]"
+          />
+          <HeroVideo
+            clips={HERO_CLIPS}
+            media="(max-width: 1023.9px)"
+            objectPosition="object-[72%_center]"
           />
           <div className="absolute inset-0 bg-forest/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/40 to-forest/70" />
