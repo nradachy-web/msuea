@@ -58,7 +58,7 @@ export default function HomePage() {
           <Reveal>
             <p className="eyebrow text-mint">
               <SpartanHelmet className="h-5 w-auto" />
-              {BRAND.university} · Est. {BRAND.founded}
+              Student-run at Michigan State since {BRAND.founded}
             </p>
           </Reveal>
           <Reveal delay={90}>

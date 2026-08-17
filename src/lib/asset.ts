@@ -15,9 +15,16 @@ export const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 /** True when this build is the subpath preview rather than the real site. */
 export const IS_PREVIEW = BASE !== "";
 
+/**
+ * Bump when art files are overwritten in place so browsers that
+ * cached an earlier visit fetch the new imagery.
+ */
+const ART_VERSION = "2";
+
 export function asset(path: string): string {
   if (!path) return path;
   if (/^https?:\/\//.test(path)) return path;
-  if (BASE && path.startsWith(BASE)) return path;
-  return path.startsWith("/") ? `${BASE}${path}` : path;
+  const version = path.startsWith("/images/art/") ? `?v=${ART_VERSION}` : "";
+  if (BASE && path.startsWith(BASE)) return `${path}${version}`;
+  return path.startsWith("/") ? `${BASE}${path}${version}` : path;
 }

@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     siteName: BRAND.name,
     title: SEO.home.title,
     description: SEO.home.description,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: BRAND.name }],
+    images: [{ url: "/og-msuea.jpg", width: 1200, height: 630, alt: BRAND.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: SEO.home.title,
     description: SEO.home.description,
-    images: ["/og-image.jpg"],
+    images: ["/og-msuea.jpg"],
   },
   // The subpath preview must never be indexed; canonicals already point
   // at msuea.org, and an indexed preview would compete with it at launch.

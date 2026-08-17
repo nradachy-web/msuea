@@ -50,7 +50,7 @@ export const SEO = {
 export const TICKER_ITEMS = [
   "Go green",
   "Go white",
-  "Est. 2006",
+  "MSUEA est. 2006",
   "Open to every major",
   "Build something",
   "East Lansing, MI",

@@ -33,8 +33,8 @@ export default function Footer() {
             </span>
           </div>
           <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-fog">
-            {BRAND.tagline} Open to every major at {BRAND.university} since{" "}
-            {BRAND.founded}.
+            {BRAND.tagline} Student-run since {BRAND.founded}, open to every
+            major.
           </p>
           <GoGreen className="display mt-6 flex items-center gap-2.5 text-sm tracking-[0.2em] text-mint transition-colors hover:text-white">
             <SpartanHelmet className="h-5 w-auto" />

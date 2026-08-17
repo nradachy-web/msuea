@@ -100,7 +100,7 @@ export default function Navbar() {
           Join MSUEA
         </Link>
         <p className="mt-6 text-sm text-fog">
-          {BRAND.university} · Est. {BRAND.founded}
+          {BRAND.short} · Est. {BRAND.founded} · {BRAND.university}
         </p>
       </div>
     </header>
