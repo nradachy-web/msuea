@@ -21,7 +21,9 @@ together.
 - `forest` #18453B primary green (dark band bg)
 - `pine` #0F2A23 footer/deepest
 - `kelly` #326C4D accent, CTA
-- `moss` #4E8A66 hover/light accent on dark
+- `kelly-deep` #2A5C41 solid-button hover
+- `moss` #4E8A66 accent for BACKGROUNDS only (fails AA as text on forest)
+- `mint` #8CC0A4 text accent on forest/pine bands (AA compliant)
 - `sage` #565E50 muted olive
 - `mist` #F2F2F2 light band bg
 - `putty` #DAD3C7 warm band bg (use sparingly, `bg-putty/40`)

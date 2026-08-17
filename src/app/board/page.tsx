@@ -25,6 +25,7 @@ export default function BoardPage() {
       {/* ============ THE BOARD ============ */}
       <section className="bg-mist py-20 sm:py-28">
         <div className="container-x">
+          <h2 className="sr-only">Board members</h2>
           <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {BOARD.map((member, i) => (
               <Reveal as="li" key={member.name} delay={(i % 3) * 70} className="h-full">

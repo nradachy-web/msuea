@@ -22,7 +22,7 @@ export default function PageHero({
     <section className="relative overflow-hidden bg-forest text-white">
       <EaMark className="pointer-events-none absolute -right-16 -top-10 h-[130%] w-auto text-white/[0.05]" />
       <div className="container-x relative py-20 sm:py-28">
-        <p className="eyebrow text-moss">{eyebrow}</p>
+        <p className="eyebrow text-mint">{eyebrow}</p>
         <h1 className="display mt-5 max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
           {title}
         </h1>

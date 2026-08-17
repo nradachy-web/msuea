@@ -23,16 +23,25 @@ export default function HomePage() {
     <>
       {/* ============ HERO: the varsity poster ============ */}
       <section className="relative overflow-hidden bg-forest text-white">
-        <EaMark className="pointer-events-none absolute -right-24 top-1/2 h-[150%] w-auto -translate-y-1/2 text-white/[0.05] sm:-right-16" />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            maskImage: "linear-gradient(to left, black 55%, transparent 85%)",
+            WebkitMaskImage:
+              "linear-gradient(to left, black 55%, transparent 85%)",
+          }}
+        >
+          <EaMark className="absolute -right-24 top-1/2 h-[150%] w-auto -translate-y-1/2 text-white/[0.05] sm:-right-16" />
+        </div>
         <div className="container-x relative py-24 sm:py-32 lg:py-40">
           <Reveal>
-            <p className="eyebrow text-moss">
+            <p className="eyebrow text-mint">
               {BRAND.university} · Est. {BRAND.founded}
             </p>
             <h1 className="display mt-6 text-[clamp(3.4rem,10vw,8rem)]">
               Where Spartans
               <br />
-              <span className="text-moss">Build</span>
+              <span className="text-mint">Build</span>
               {" what's"}
               <br />
               next.
@@ -60,7 +69,7 @@ export default function HomePage() {
             {["EST. 2006", "OPEN TO EVERY MAJOR", "SPEAKERS · PITCHES · TRIPS"].map(
               (fact) => (
                 <span key={fact} className="display flex items-center gap-3 text-fog">
-                  <EaMark className="h-3 w-auto text-moss" />
+                  <EaMark className="h-3 w-auto text-mint" />
                   {fact}
                 </span>
               ),
@@ -79,7 +88,7 @@ export default function HomePage() {
         </div>
         <VentureMarquee className="mt-6" />
         <div className="container-x">
-          <p className="mt-5 text-sm text-muted">
+          <p className="mt-5 text-sm text-body">
             A few of the notable ventures with Michigan State roots.
           </p>
         </div>
@@ -205,25 +214,38 @@ export default function HomePage() {
           </Reveal>
           <div className="mt-12 grid gap-5 lg:grid-cols-[1.5fr_1fr]">
             <Reveal>
-              <article className="notch flex h-full flex-col gap-6 bg-white p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-9">
-                <div className="display flex w-24 shrink-0 flex-col items-center bg-forest px-4 py-5 text-white">
-                  <span className="text-sm tracking-[0.2em] text-moss">
-                    {nextEvent.dateDisplay.month}
-                  </span>
-                  <span className="text-5xl">{nextEvent.dateDisplay.day}</span>
-                </div>
-                <div>
+              {nextEvent ? (
+                <article className="notch flex h-full flex-col gap-6 bg-white p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-9">
+                  <div className="display flex w-24 shrink-0 flex-col items-center bg-forest px-4 py-5 text-white">
+                    <span className="text-sm tracking-[0.2em] text-mint">
+                      {nextEvent.dateDisplay.month}
+                    </span>
+                    <span className="text-5xl">{nextEvent.dateDisplay.day}</span>
+                  </div>
+                  <div>
+                    <h3 className="display text-3xl text-forest">
+                      {nextEvent.title}
+                    </h3>
+                    <p className="mt-2 max-w-md leading-relaxed text-body">
+                      {nextEvent.description}
+                    </p>
+                    <p className="display mt-4 text-[0.8rem] tracking-[0.12em] text-kelly">
+                      {nextEvent.note}
+                    </p>
+                  </div>
+                </article>
+              ) : (
+                <article className="notch flex h-full flex-col justify-center bg-white p-7 sm:p-9">
                   <h3 className="display text-3xl text-forest">
-                    {nextEvent.title}
+                    New dates landing soon
                   </h3>
                   <p className="mt-2 max-w-md leading-relaxed text-body">
-                    {nextEvent.description}
+                    The next calendar is being finalized. Follow along on
+                    Instagram or join the email list below and every date
+                    reaches you as it locks in.
                   </p>
-                  <p className="display mt-4 text-[0.8rem] tracking-[0.12em] text-kelly">
-                    {nextEvent.note}
-                  </p>
-                </div>
-              </article>
+                </article>
+              )}
             </Reveal>
             <Reveal delay={100}>
               <div className="notch flex h-full flex-col justify-between bg-forest p-7 text-white sm:p-9">
@@ -256,7 +278,7 @@ export default function HomePage() {
         <EaMark className="pointer-events-none absolute -left-24 -bottom-16 h-[120%] w-auto text-white/[0.05]" />
         <div className="container-x relative">
           <Reveal>
-            <p className="eyebrow text-moss">What membership looks like</p>
+            <p className="eyebrow text-mint">What membership looks like</p>
             <blockquote className="mt-7 max-w-4xl font-body text-2xl italic leading-snug text-white sm:text-3xl">
               &ldquo;{MEMBERSHIP_QUOTE}&rdquo;
             </blockquote>

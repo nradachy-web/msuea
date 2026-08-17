@@ -11,7 +11,7 @@ import PageHero from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Confirmed MSUEA events at Michigan State, plus how every event drops: announced on Instagram first, signup links on the email list, day-of coordination in WhatsApp.",
+    "Confirmed MSUEA events at Michigan State, plus how every event drops: announced on Instagram first, with signup links on the email list and the WhatsApp community.",
   alternates: { canonical: "/events/" },
 };
 
@@ -27,13 +27,13 @@ const DROP_STEPS = [
     n: "02",
     icon: Mail,
     title: "Email gets the link",
-    body: "The email list gets the signup link, so when spots are limited the people on the list are first in line.",
+    body: "Signup forms go out to the email list, so the link lands straight in your inbox when it goes live.",
   },
   {
     n: "03",
     icon: Users,
-    title: "WhatsApp on the day",
-    body: "Day-of coordination happens in the WhatsApp community: where to meet, when to show up, and who else is coming.",
+    title: "WhatsApp keeps you close",
+    body: "Announcements also land in the WhatsApp community, alongside the members you will see at every event.",
   },
 ] as const;
 
@@ -60,7 +60,7 @@ export default function EventsPage() {
               <Reveal key={event.date + event.title} delay={i * 70}>
                 <article className="notch flex flex-col gap-6 border-t-4 border-kelly bg-white p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-9">
                   <div className="display flex w-24 shrink-0 flex-col items-center bg-forest px-4 py-5 text-white">
-                    <span className="text-sm tracking-[0.2em] text-moss">
+                    <span className="text-sm tracking-[0.2em] text-mint">
                       {event.dateDisplay.month}
                     </span>
                     <span className="text-5xl">{event.dateDisplay.day}</span>
@@ -154,7 +154,7 @@ export default function EventsPage() {
         <EaMark className="pointer-events-none absolute -right-24 -bottom-16 h-[120%] w-auto text-white/[0.05]" />
         <div className="container-x relative grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
           <Reveal>
-            <p className="eyebrow text-moss">Stay in the loop</p>
+            <p className="eyebrow text-mint">Stay in the loop</p>
             <h2 className="display mt-4 text-5xl sm:text-6xl">
               Never miss a night
             </h2>

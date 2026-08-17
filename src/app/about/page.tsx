@@ -132,7 +132,7 @@ export default function AboutPage() {
         <EaMark className="pointer-events-none absolute -right-24 top-1/2 h-[150%] w-auto -translate-y-1/2 text-white/[0.05]" />
         <div className="container-x relative">
           <Reveal>
-            <p className="eyebrow text-moss">The proof</p>
+            <p className="eyebrow text-mint">The proof</p>
             <h2 className="display mt-4 text-5xl sm:text-6xl">
               Spartans have built
             </h2>

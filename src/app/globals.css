@@ -23,7 +23,10 @@
   --color-forest: #18453b;
   --color-pine: #0f2a23;
   --color-kelly: #326c4d;
+  --color-kelly-deep: #2a5c41;
   --color-moss: #4e8a66;
+  /* text accent on forest/pine bands; clears WCAG AA (5.2:1 on forest) */
+  --color-mint: #8cc0a4;
   --color-sage: #565e50;
 
   /* light surfaces */
@@ -165,7 +168,7 @@ body {
     color: #fff;
   }
   .btn-solid:hover {
-    background: var(--color-moss);
+    background: var(--color-kelly-deep);
   }
   .btn-light {
     background: var(--color-mist);
@@ -227,7 +230,6 @@ body {
   opacity: 0;
   transform: translateY(18px);
 }
-.rv-done,
 .rv {
   transition:
     opacity 0.7s var(--ease-out),
@@ -270,15 +272,14 @@ body {
     opacity: 1;
     transform: none;
   }
-  .rv,
-  .rv-done {
+  .rv {
     transition: none;
   }
 }
 
 /* keyboard focus */
 :focus-visible {
-  outline: 3px solid var(--color-moss);
+  outline: 3px solid var(--color-mint);
   outline-offset: 3px;
 }
 

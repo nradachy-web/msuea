@@ -50,8 +50,8 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "display pt-0.5 text-[0.9rem] tracking-[0.1em] transition-colors hover:text-moss",
-                isActive(item.href) ? "text-moss" : "text-white",
+                "display pt-0.5 text-[0.9rem] tracking-[0.1em] transition-colors hover:text-mint",
+                isActive(item.href) ? "text-mint" : "text-white",
               )}
             >
               {item.label}
@@ -78,7 +78,7 @@ export default function Navbar() {
       <div
         id="mobile-nav"
         className={cn(
-          "fixed inset-x-0 top-16 bottom-0 z-40 flex-col overflow-y-auto bg-forest px-6 pb-10 pt-4 lg:hidden",
+          "fixed inset-x-0 top-16 bottom-0 z-40 flex-col overflow-y-auto bg-forest px-6 pb-10 pt-4 sm:top-20 lg:hidden",
           open ? "flex" : "hidden",
         )}
       >
@@ -89,7 +89,7 @@ export default function Navbar() {
               href={item.href}
               className={cn(
                 "display border-b border-white/10 py-5 text-3xl tracking-[0.06em]",
-                isActive(item.href) ? "text-moss" : "text-white",
+                isActive(item.href) ? "text-mint" : "text-white",
               )}
             >
               {item.label}

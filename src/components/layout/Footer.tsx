@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
 
         <nav aria-label="Footer">
-          <h2 className="display text-sm tracking-[0.14em] text-moss">
+          <h2 className="display text-sm tracking-[0.14em] text-mint">
             Explore
           </h2>
           <ul className="mt-4 space-y-2.5">
@@ -69,7 +69,7 @@ export default function Footer() {
         </nav>
 
         <div>
-          <h2 className="display text-sm tracking-[0.14em] text-moss">
+          <h2 className="display text-sm tracking-[0.14em] text-mint">
             Get in touch
           </h2>
           <ul className="mt-4 space-y-2.5 text-[0.95rem] text-fog">

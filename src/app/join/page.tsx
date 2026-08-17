@@ -142,7 +142,7 @@ export default function JoinPage() {
         <EaMark className="pointer-events-none absolute -left-24 -bottom-16 h-[120%] w-auto text-white/[0.05]" />
         <div className="container-x relative">
           <Reveal>
-            <p className="eyebrow text-moss">What membership looks like</p>
+            <p className="eyebrow text-mint">What membership looks like</p>
             <blockquote className="mt-7 max-w-4xl font-body text-2xl italic leading-snug text-white sm:text-3xl">
               &ldquo;{MEMBERSHIP_QUOTE}&rdquo;
             </blockquote>

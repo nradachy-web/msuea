@@ -1,13 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import EaMark from "@/components/ui/EaMark";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "This page does not exist. Everything current lives on the MSU Entrepreneurship Association homepage.",
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (
     <section className="relative overflow-hidden bg-forest text-white">
       <EaMark className="pointer-events-none absolute -right-20 top-1/2 h-[150%] w-auto -translate-y-1/2 text-white/[0.05]" />
       <div className="container-x relative flex min-h-[60vh] flex-col items-start justify-center py-24">
-        <p className="eyebrow text-moss">404</p>
+        <p className="eyebrow text-mint">404</p>
         <h1 className="display mt-5 text-6xl sm:text-7xl">
           This page pivoted
         </h1>

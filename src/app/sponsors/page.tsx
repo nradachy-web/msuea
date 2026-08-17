@@ -136,7 +136,7 @@ export default function SponsorsPage() {
         <EaMark className="pointer-events-none absolute -left-20 top-1/2 h-[160%] w-auto -translate-y-1/2 text-white/[0.05]" />
         <div className="container-x relative py-20 text-center sm:py-28">
           <Reveal>
-            <p className="eyebrow justify-center text-moss">
+            <p className="eyebrow justify-center text-mint">
               Start the conversation
             </p>
             <h2 className="display mx-auto mt-5 max-w-3xl text-5xl sm:text-6xl">
