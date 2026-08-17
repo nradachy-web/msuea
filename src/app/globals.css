@@ -291,6 +291,66 @@ body {
   -webkit-mask-image: linear-gradient(to left, black 58%, transparent 95%);
 }
 
+/* marquees fade at both edges instead of hard-clipping */
+.edge-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 7%,
+    black 93%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 7%,
+    black 93%,
+    transparent
+  );
+}
+
+/* cinematic slow push-in on hero art */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hero-zoom {
+  animation: hero-zoom 7s var(--ease-out) both;
+}
+
+/* duotone grade for real photography, matching the art system */
+.duotone {
+  position: relative;
+}
+.duotone img {
+  filter: grayscale(1) contrast(1.06) brightness(0.96);
+}
+.duotone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    var(--color-kelly),
+    var(--color-forest) 70%
+  );
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+/* cross-document page transitions (progressive, Chrome/Safari) */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
+}
+
 /* marquee */
 @keyframes marquee-x {
   from {
@@ -322,6 +382,12 @@ body {
   }
   .scroll-progress {
     display: none;
+  }
+  .hero-zoom {
+    animation: none;
+  }
+  @view-transition {
+    navigation: none;
   }
   .marquee-track {
     animation: none;

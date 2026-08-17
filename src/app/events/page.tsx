@@ -5,6 +5,7 @@ import { BRAND, UPCOMING_EVENTS } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 import EaMark from "@/components/ui/EaMark";
 import Parallax from "@/components/ui/Parallax";
+import DaysOut from "@/components/ui/DaysOut";
 import Reveal from "@/components/ui/Reveal";
 import EmailSignup from "@/components/ui/EmailSignup";
 import JoinCta from "@/components/ui/JoinCta";
@@ -76,9 +77,12 @@ export default function EventsPage() {
                         <p className="mt-2 max-w-2xl leading-relaxed text-body">
                           {event.description}
                         </p>
-                        <p className="display mt-4 text-[0.8rem] tracking-[0.12em] text-kelly">
-                          {event.dateDisplay.weekday} · {event.note}
-                        </p>
+                        <div className="mt-4 flex flex-wrap items-center gap-3">
+                          <DaysOut date={event.date} />
+                          <p className="display text-[0.8rem] tracking-[0.12em] text-kelly">
+                            {event.dateDisplay.weekday} · {event.note}
+                          </p>
+                        </div>
                       </div>
                     </article>
                   </Reveal>

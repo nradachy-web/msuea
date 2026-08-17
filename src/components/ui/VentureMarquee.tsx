@@ -33,9 +33,11 @@ export default function VentureMarquee({ className }: { className?: string }) {
       className={cn("marquee-paused overflow-hidden", className)}
       style={{ "--marquee-dur": "70s" } as React.CSSProperties}
     >
-      <div className="marquee-track">
-        <Row />
-        <Row hidden />
+      <div className="edge-fade">
+        <div className="marquee-track">
+          <Row />
+          <Row hidden />
+        </div>
       </div>
     </div>
   );

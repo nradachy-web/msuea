@@ -56,7 +56,7 @@ export default function AboutPage() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <figure>
-              <div className="notch notch-lg">
+              <div className="duotone notch notch-lg">
                 <img
                   src={asset("/images/event-broad-1200.jpg")}
                   srcSet={`${asset("/images/event-broad-800.jpg")} 800w, ${asset(

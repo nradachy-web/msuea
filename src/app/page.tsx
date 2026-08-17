@@ -11,6 +11,7 @@ import {
 } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
+import DaysOut from "@/components/ui/DaysOut";
 import EaMark from "@/components/ui/EaMark";
 import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import Ticker from "@/components/ui/Ticker";
@@ -37,7 +38,7 @@ export default function HomePage() {
               src={asset("/images/art/hero-1400.jpg")}
               alt=""
               loading="lazy"
-              className="h-[115%] w-full object-cover object-right"
+              className="hero-zoom h-[115%] w-full object-cover object-right"
             />
           </Parallax>
           <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/40 to-transparent" />
@@ -48,7 +49,7 @@ export default function HomePage() {
           <img
             src={asset("/images/art/hero-900.jpg")}
             alt=""
-            className="h-full w-full object-cover object-[72%_center]"
+            className="hero-zoom h-full w-full object-cover object-[72%_center]"
           />
           <div className="absolute inset-0 bg-forest/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/40 to-forest/70" />
@@ -177,7 +178,7 @@ export default function HomePage() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <figure>
-              <div className="notch notch-lg">
+              <div className="duotone notch notch-lg">
                 <img
                   src={asset("/images/event-broad-1200.jpg")}
                   srcSet={`${asset("/images/event-broad-800.jpg")} 800w, ${asset(
@@ -259,9 +260,12 @@ export default function HomePage() {
                     <p className="mt-2 max-w-md leading-relaxed text-body">
                       {nextEvent.description}
                     </p>
-                    <p className="display mt-4 text-[0.8rem] tracking-[0.12em] text-kelly">
-                      {nextEvent.note}
-                    </p>
+                    <div className="mt-4 flex flex-wrap items-center gap-3">
+                      <DaysOut date={nextEvent.date} />
+                      <p className="display text-[0.8rem] tracking-[0.12em] text-kelly">
+                        {nextEvent.note}
+                      </p>
+                    </div>
                   </div>
                 </article>
               ) : (

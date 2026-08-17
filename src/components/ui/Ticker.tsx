@@ -40,9 +40,11 @@ export default function Ticker({
       )}
       style={{ "--marquee-dur": duration } as React.CSSProperties}
     >
-      <div className="marquee-track">
-        <Row items={items} />
-        <Row items={items} hidden />
+      <div className="edge-fade">
+        <div className="marquee-track">
+          <Row items={items} />
+          <Row items={items} hidden />
+        </div>
       </div>
     </div>
   );

@@ -1,22 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import EaMark from "@/components/ui/EaMark";
+import { asset } from "@/lib/asset";
+import SpartanHelmet from "@/components/ui/SpartanHelmet";
 
 export const metadata: Metadata = {
   title: "Page not found",
-  description: "This page does not exist. Everything current lives on the MSU Entrepreneurship Association homepage.",
+  description:
+    "This page does not exist. Everything current lives on the MSU Entrepreneurship Association homepage.",
   robots: { index: false, follow: false },
 };
 
 export default function NotFound() {
   return (
     <section className="relative overflow-hidden bg-forest text-white">
-      <EaMark className="pointer-events-none absolute -right-20 top-1/2 h-[150%] w-auto -translate-y-1/2 text-white/[0.05]" />
-      <div className="container-x relative flex min-h-[60vh] flex-col items-start justify-center py-24">
-        <p className="eyebrow text-mint">404</p>
-        <h1 className="display mt-5 text-6xl sm:text-7xl">
-          This page pivoted
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <img
+          src={asset("/images/art/hero-1400.jpg")}
+          alt=""
+          className="h-full w-full object-cover object-[75%_center] opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/70 to-forest/30" />
+      </div>
+      <div className="container-x relative flex min-h-[70vh] flex-col items-start justify-center py-24">
+        <p className="eyebrow text-mint">
+          <SpartanHelmet className="h-4 w-auto" />
+          404
+        </p>
+        <h1 className="display mt-5 text-6xl sm:text-8xl">
+          This page
+          <br />
+          pivoted
         </h1>
         <p className="mt-5 max-w-md text-lg leading-relaxed text-fog">
           Whatever lived here has moved on to its next venture. The homepage

@@ -4,6 +4,7 @@ import { BRAND, NAV } from "@/lib/constants";
 import EaMark from "@/components/ui/EaMark";
 import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import StripeBar from "@/components/ui/StripeBar";
+import GoGreen from "@/components/ui/GoGreen";
 import {
   InstagramIcon,
   LinkedinIcon,
@@ -35,10 +36,10 @@ export default function Footer() {
             {BRAND.tagline} Open to every major at {BRAND.university} since{" "}
             {BRAND.founded}.
           </p>
-          <p className="display mt-6 flex items-center gap-2.5 text-sm tracking-[0.2em] text-mint">
+          <GoGreen className="display mt-6 flex items-center gap-2.5 text-sm tracking-[0.2em] text-mint transition-colors hover:text-white">
             <SpartanHelmet className="h-5 w-auto" />
             Go green. Go white.
-          </p>
+          </GoGreen>
           <div className="mt-6 flex gap-3">
             {SOCIALS.map(({ label, href, Icon }) => (
               <a
