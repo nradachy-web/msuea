@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+/* ============================================================
+   MSU ENTREPRENEURSHIP ASSOCIATION, "Varsity Venture" system
+
+   Direct implementation of the club's own brand guidelines:
+   Spartan green palette, Norwester display caps, Inter text.
+
+   The signature motif is the NOTCH: the angular cut taken from
+   the club's own EA monogram (the sigma's bite). It appears as
+   a clipped corner on photos, cards, and buttons, so the mark's
+   geometry echoes through every page.
+
+   Surfaces alternate:
+     FOREST = deep Spartan green bands, where identity lives
+     MIST   = cool paper bands, where information lives
+     PUTTY  = warm putty bands (from the club's logo sheet),
+              used sparingly for texture between the two
+   ============================================================ */
+
+@theme {
+  /* greens, from the brand guideline sheet */
+  --color-forest: #18453b;
+  --color-pine: #0f2a23;
+  --color-kelly: #326c4d;
+  --color-moss: #4e8a66;
+  --color-sage: #565e50;
+
+  /* light surfaces */
+  --color-mist: #f2f2f2;
+  --color-putty: #dad3c7;
+  --color-line: #d9ded9;
+
+  /* text */
+  --color-ink: #2e3734;
+  --color-body: #3c4540;
+  --color-muted: #66716b;
+  --color-fog: #b9c6bf; /* muted text on forest */
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+
+  --font-display: var(--font-display-raw), "Arial Narrow", system-ui,
+    sans-serif;
+  --font-body: var(--font-body-raw), "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* the notch: one corner cut at the EA mark's angle */
+  --notch: 18px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-mist);
+  color: var(--color-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ------------------------------------------------------------
+   Component classes. Color and alignment defaults live inside
+   @layer components so Tailwind utilities can still override
+   them (unlayered CSS would silently win over every text-* and
+   bg-* utility).
+   ------------------------------------------------------------ */
+
+@layer components {
+  .container-x {
+    margin-inline: auto;
+    max-width: 74rem;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Norwester display type */
+  .display {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    line-height: 0.94;
+    font-weight: 400;
+  }
+
+  /* eyebrow: small Norwester label with a kelly tick */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.8rem;
+    color: var(--color-kelly);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.4rem;
+    height: 3px;
+    background: currentColor;
+    /* the tick carries the notch angle too */
+    clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 0 100%);
+  }
+
+  /* the signature notch, cut bottom-right by default */
+  .notch {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--notch)),
+      calc(100% - var(--notch)) 100%,
+      0 100%
+    );
+  }
+  .notch-tl {
+    clip-path: polygon(
+      var(--notch) 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 var(--notch)
+    );
+  }
+  .notch-lg {
+    --notch: 34px;
+  }
+
+  /* buttons: rectangular, Norwester, notched */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+    padding: 0.95rem 1.6rem 0.8rem;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 12px),
+      calc(100% - 12px) 100%,
+      0 100%
+    );
+    transition:
+      background-color 0.2s var(--ease-out),
+      color 0.2s var(--ease-out),
+      transform 0.2s var(--ease-out);
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-solid {
+    background: var(--color-kelly);
+    color: #fff;
+  }
+  .btn-solid:hover {
+    background: var(--color-moss);
+  }
+  .btn-light {
+    background: var(--color-mist);
+    color: var(--color-forest);
+  }
+  .btn-light:hover {
+    background: #fff;
+  }
+  .btn-forest {
+    background: var(--color-forest);
+    color: #fff;
+  }
+  .btn-forest:hover {
+    background: var(--color-kelly);
+  }
+  .btn-outline-light {
+    box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.55);
+    color: #fff;
+    background: transparent;
+  }
+  .btn-outline-light:hover {
+    box-shadow: inset 0 0 0 2px #fff;
+    background: rgb(255 255 255 / 0.08);
+  }
+  .btn-outline-dark {
+    box-shadow: inset 0 0 0 2px var(--color-forest);
+    color: var(--color-forest);
+    background: transparent;
+  }
+  .btn-outline-dark:hover {
+    background: var(--color-forest);
+    color: #fff;
+  }
+
+  /* text link on light surfaces */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    color: var(--color-forest);
+    transition: color 0.2s var(--ease-out), gap 0.2s var(--ease-out);
+  }
+  .link-arrow:hover {
+    color: var(--color-kelly);
+    gap: 0.7rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   Scroll reveals. The resting state is VISIBLE: JS adds .rv-init
+   before first paint and removes it on intersect, so with JS
+   disabled (or an observer that never fires) nothing is hidden.
+   ------------------------------------------------------------ */
+.rv-init {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.rv-done,
+.rv {
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+/* marquee */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--marquee-dur, 42s) linear infinite;
+}
+.marquee-paused:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media print {
+  .rv-init {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .rv-init {
+    opacity: 1;
+    transform: none;
+  }
+  .rv,
+  .rv-done {
+    transition: none;
+  }
+}
+
+/* keyboard focus */
+:focus-visible {
+  outline: 3px solid var(--color-moss);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-kelly);
+  color: #fff;
+}
