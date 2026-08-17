@@ -23,9 +23,9 @@ import EmailSignup from "@/components/ui/EmailSignup";
 import JoinCta from "@/components/ui/JoinCta";
 
 const HERO_CLIPS = [
-  "/videos/statue-dolly.mp4",
-  "/videos/statue-pan.mp4",
-  "/videos/statue-rise.mp4",
+  "/videos/hero-a.mp4",
+  "/videos/hero-b.mp4",
+  "/videos/hero-c.mp4",
 ];
 
 export default function HomePage() {

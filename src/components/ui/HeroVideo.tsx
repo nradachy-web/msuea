@@ -49,13 +49,19 @@ export default function HeroVideo({
 
     const layers = [a, b];
     const FADE_LEAD = 1.1; // seconds before clip end to begin the dissolve
+    const RATE = 0.8; // extra slow motion on top of the source footage
 
     const src = (i: number) => asset(clips[i % clips.length]);
 
     a.src = src(0);
+    layers.forEach((v) => {
+      v.defaultPlaybackRate = RATE;
+      v.playbackRate = RATE;
+    });
     state.current = { active: 0, clip: 0, switching: false };
 
     const onFirstReady = () => {
+      a.playbackRate = RATE;
       a.play()
         .then(() => setVisible(true))
         .catch(() => {
@@ -77,6 +83,7 @@ export default function HeroVideo({
         s.switching = true;
         nxt.src = src(s.clip + 1);
         const start = () => {
+          nxt.playbackRate = RATE;
           nxt.play()
             .then(() => {
               nxt.style.opacity = "1";
