@@ -5,7 +5,7 @@ import {
   LinkedinIcon,
   WhatsAppIcon,
 } from "@/components/ui/BrandIcons";
-import { BRAND, BOARD } from "@/lib/constants";
+import { BRAND, BOARD, LOCATIONS } from "@/lib/constants";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import JoinCta from "@/components/ui/JoinCta";
@@ -120,13 +120,29 @@ export default function ContactPage() {
             <h2 className="display mt-4 text-5xl text-ink sm:text-6xl">
               Find us
             </h2>
-            <p className="mt-6 flex items-center gap-3 text-lg text-body">
-              <MapPin className="h-5 w-5 shrink-0 text-kelly" />
-              East Lansing, Michigan
-            </p>
+            <ul className="mt-6 space-y-3">
+              {LOCATIONS.map((location) => (
+                <li
+                  key={location.name}
+                  className="flex items-center gap-3 text-lg text-body"
+                >
+                  <MapPin className="h-5 w-5 shrink-0 text-kelly" />
+                  <span>
+                    <span className="font-medium text-ink">
+                      {location.name}
+                    </span>
+                    <span className="text-muted">
+                      {" "}
+                      &middot; {location.building}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
             <p className="mt-4 max-w-lg leading-relaxed text-body">
-              The fastest answers come through Instagram DMs or the WhatsApp
-              community. Email works too, it just moves at inbox speed.
+              Three homes, one campus in East Lansing. The fastest answers come
+              through Instagram DMs or the WhatsApp community. Email works too,
+              it just moves at inbox speed.
             </p>
           </Reveal>
           <Reveal delay={100}>

@@ -23,8 +23,9 @@ export const BRAND = {
   linkedin:
     "https://www.linkedin.com/in/michigan-state-entrepreneurship-association-724385282/",
   whatsapp: "https://chat.whatsapp.com/K9j7FPRYGMcDYwCbVQ9HWj",
-  venmoUrl: "https://venmo.com/u/AngelaLeach",
-  venmoHandle: "@AngelaLeach",
+  /** Club Venmo, per Angela's 8/24 email (replaced her personal handle). */
+  venmoUrl: "https://www.venmo.com/u/msueship",
+  venmoHandle: "@msueship",
   /** Katyra Waller, Director of Social Media: membership + email list. */
   membershipEmail: "waller10@msu.edu",
   /** Ely Boidaha, Director of Finance: dues pricing. */
@@ -239,7 +240,25 @@ export const UPCOMING_EVENTS: ClubEvent[] = [
       "A collaboration event with Recharged Pilates. Spots are limited, so keep an eye on our Instagram and email list for the signup form.",
     note: "Limited spots. Signup form announced soon.",
   },
+  {
+    date: "2026-09-29",
+    dateDisplay: { month: "SEP", day: "29", weekday: "Tuesday" },
+    title: "Growth & Fundraising with Craig Heldman",
+    description:
+      "A session on growth and fundraising with Craig Heldman, held in the Entrepreneurship Lab at the Eli Broad College of Business.",
+    note: "6:30 to 7:30 PM · Entrepreneurship Lab",
+  },
 ];
+
+/** Where EA lives on campus, per Angela's 8/18 email. */
+export const LOCATIONS = [
+  { name: "The Burgess Offices", building: "MSU Student Union" },
+  { name: "The Station", building: "Wells Hall" },
+  {
+    name: "The Entrepreneurship Lab",
+    building: "Eli Broad College of Business",
+  },
+] as const;
 
 export const SPONSORS = [
   {

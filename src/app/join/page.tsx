@@ -106,7 +106,7 @@ export default function JoinPage() {
                   <div className="notch shrink-0 border-2 border-line bg-white p-4">
                     <img
                       src={asset("/images/venmo-qr.svg")}
-                      alt="Venmo QR code for @AngelaLeach"
+                      alt={`Venmo QR code for ${BRAND.venmoHandle}`}
                       className="h-40 w-40"
                       loading="lazy"
                     />

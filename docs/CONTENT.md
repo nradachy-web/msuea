@@ -30,7 +30,7 @@ here or in `src/lib/constants.ts`, do not state it.
 1. Join the WhatsApp community (link in constants).
 2. Sign up for the email list (michiganstateea@gmail.com is the club
    inbox; the site form delivers there).
-3. Pay dues via Venmo @AngelaLeach (QR at /images/venmo-qr.svg).
+3. Pay dues via Venmo @msueship (QR at /images/venmo-qr.svg; club handle per Angela's 8/24/2026 email, replacing her personal @AngelaLeach).
    New members get a free MSUEA t-shirt. Dues pricing questions go to
    Ely Boidaha, boidahae@msu.edu.
 
