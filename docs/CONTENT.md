@@ -31,8 +31,9 @@ here or in `src/lib/constants.ts`, do not state it.
 2. Sign up for the email list (michiganstateea@gmail.com is the club
    inbox; the site form delivers there).
 3. Pay dues via Venmo @msueship (QR at /images/venmo-qr.svg; club handle per Angela's 8/24/2026 email, replacing her personal @AngelaLeach).
-   New members get a free MSUEA t-shirt. Dues pricing questions go to
-   Ely Boidaha, boidahae@msu.edu.
+   Dues are $25 per semester or $35 for the academic year (Katyra's
+   9/10/2026 email; `DUES` in constants). New members get a free MSUEA
+   t-shirt. Dues questions go to Ely Boidaha, boidahae@msu.edu.
 
 Membership questions in general: Katyra Waller, waller10@msu.edu.
 

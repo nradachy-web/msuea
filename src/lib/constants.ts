@@ -358,6 +358,12 @@ export const SPONSORS = [
   },
 ] as const;
 
+/** Current dues, per Katyra's 9/10/2026 email. */
+export const DUES = [
+  { amount: "$25", term: "Per semester" },
+  { amount: "$35", term: "For the academic year" },
+] as const;
+
 /** The club's own words on what membership looks like. */
 export const MEMBERSHIP_QUOTE =
   "MSUEA is Michigan State's community for students who want to build, pitch, and connect, no startup or business background required. As a member, you get a rotating mix of hands-on workshops, town halls, and pitch nights spanning topics such as tech, the creator economy, consumer products, and finance. Come once a month or every week; either way, you'll leave with new skills, new people, and a real sense of what's getting built on campus.";

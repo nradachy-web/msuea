@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mail } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
-import { BRAND, JOIN_STEPS, MEMBERSHIP_QUOTE } from "@/lib/constants";
+import { BRAND, DUES, JOIN_STEPS, MEMBERSHIP_QUOTE } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 import SpartanHelmet from "@/components/ui/SpartanHelmet";
 import PageHero from "@/components/ui/PageHero";
@@ -102,6 +102,21 @@ export default function JoinPage() {
                 <p className="mt-3 max-w-xl leading-relaxed text-body">
                   {stepThree.body}
                 </p>
+                <ul className="mt-7 flex flex-wrap gap-4">
+                  {DUES.map((dues) => (
+                    <li
+                      key={dues.term}
+                      className="notch border-t-4 border-kelly bg-mist px-6 pt-5 pb-6"
+                    >
+                      <p className="display text-4xl text-forest">
+                        {dues.amount}
+                      </p>
+                      <p className="display mt-2 text-[0.8rem] tracking-[0.12em] text-kelly">
+                        {dues.term}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
                 <div className="mt-8 flex flex-col items-start gap-8 sm:flex-row sm:items-center">
                   <div className="notch shrink-0 border-2 border-line bg-white p-4">
                     <img
