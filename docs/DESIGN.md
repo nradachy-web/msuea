@@ -5,7 +5,7 @@ Read these files before writing any page. They are the system:
 - `src/app/globals.css` (tokens + component classes)
 - `src/app/page.tsx` (the homepage; copy its band patterns exactly)
 - `src/lib/constants.ts` (ALL content facts; never hardcode a fact)
-- `src/components/ui/*` (EaMark, Reveal, PageHero, JoinCta, EmailSignup, VentureMarquee, BrandIcons)
+- `src/components/ui/*` (EaMark, Reveal, PageHero, JoinCta, EmailSignup, VentureMarquee, BrandIcons, EventCard, UpcomingEvents, EventCalendar)
 
 ## Identity
 

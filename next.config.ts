@@ -13,11 +13,24 @@ import type { NextConfig } from "next";
  */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+/**
+ * The East Lansing date of this build, as an ISO day. The events list
+ * and calendar render with it, then switch to the visitor's real date
+ * in the browser (src/lib/useClubToday.ts).
+ */
+const buildDay = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Detroit",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+}).format(new Date());
+
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
   typescript: { ignoreBuildErrors: true },
+  env: { NEXT_PUBLIC_BUILD_DAY: buildDay },
   ...(basePath ? { basePath, assetPrefix: basePath } : {}),
 };
 

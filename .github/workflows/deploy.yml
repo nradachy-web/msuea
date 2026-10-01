@@ -14,6 +14,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Nightly rebuild, just after midnight in East Lansing (05:10 UTC is
+  # 1:10 AM EDT or 12:10 AM EST), so the static HTML already lists the
+  # right upcoming events. The pages also roll forward in the browser,
+  # so nothing breaks if GitHub pauses this schedule.
+  schedule:
+    - cron: "10 5 * * *"
   workflow_dispatch:
 
 permissions:

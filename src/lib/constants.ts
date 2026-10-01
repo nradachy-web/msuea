@@ -224,28 +224,111 @@ export const VENTURES = [
 ] as const;
 
 export type ClubEvent = {
+  /** ISO day the event starts, e.g. "2026-10-07". */
   date: string;
-  dateDisplay: { month: string; day: string; weekday: string };
+  /** ISO last day, for multi-day events only. */
+  endDate?: string;
+  dateDisplay: {
+    month: string;
+    day: string;
+    /** Last day of a multi-day event, e.g. "14". */
+    endDay?: string;
+    weekday: string;
+  };
   title: string;
   description: string;
+  /** Time and place, e.g. "6:30 to 7:30 PM · Entrepreneurship Lab". */
   note: string;
 };
 
-export const UPCOMING_EVENTS: ClubEvent[] = [
+/**
+ * The full semester schedule, per Brandon Matthews' 10/1/2026 email
+ * (Fall Semester 2026). List every event here, past ones included:
+ * the calendar shows them all, and the "Locked in" and "Up next"
+ * cards pick the next ones by date on their own (src/lib/events.ts).
+ */
+export const EVENTS: ClubEvent[] = [
   {
-    date: "2026-09-22",
-    dateDisplay: { month: "SEP", day: "22", weekday: "Tuesday" },
-    title: "MSUEA x Recharged Pilates",
+    date: "2026-10-07",
+    dateDisplay: { month: "OCT", day: "7", weekday: "Wednesday" },
+    title: "Guest Speaker: John Hill",
     description:
-      "A collaboration event with Recharged Pilates. Spots are limited, so keep an eye on our Instagram and email list for the signup form.",
-    note: "Limited spots. Signup form announced soon.",
+      "John Hill shares his entrepreneurship journey and the story behind Whop.",
+    note: "6:30 to 7:30 PM · Entrepreneurship Lab",
   },
   {
-    date: "2026-09-29",
-    dateDisplay: { month: "SEP", day: "29", weekday: "Tuesday" },
-    title: "Growth & Fundraising with Craig Heldman",
+    date: "2026-10-08",
+    dateDisplay: { month: "OCT", day: "8", weekday: "Thursday" },
+    title: "Meeting with Sanjay Baskaran",
     description:
-      "A session on growth and fundraising with Craig Heldman, held in the Entrepreneurship Lab at the Eli Broad College of Business.",
+      "Interested in VC or private equity? Join us as Sanjay Baskaran visits campus to share his experience as an Advisor at Advent International.",
+    note: "2:15 to 3:15 PM · M235",
+  },
+  {
+    date: "2026-10-14",
+    dateDisplay: { month: "OCT", day: "14", weekday: "Wednesday" },
+    title: "Fall Trip Info Session",
+    description: "Everything you need to know about our fall trip to Detroit.",
+    note: "6:30 to 7:30 PM · Virtual",
+  },
+  {
+    date: "2026-11-03",
+    dateDisplay: { month: "NOV", day: "3", weekday: "Tuesday" },
+    title: "RDPD Entrepreneurship Workshop",
+    description: "A volunteering opportunity with EA, WE, and Limitless.",
+    note: "11:30 AM to 1:30 PM · Location TBD",
+  },
+  {
+    date: "2026-11-04",
+    dateDisplay: { month: "NOV", day: "4", weekday: "Wednesday" },
+    title: "Building a Business With $0",
+    description:
+      "How to get a business off the ground without startup capital.",
+    note: "6:30 to 7:30 PM · Entrepreneurship Lab",
+  },
+  {
+    date: "2026-11-11",
+    dateDisplay: { month: "NOV", day: "11", weekday: "Wednesday" },
+    title: "Corporate Mixer",
+    description: "Network with representatives from companies in the area.",
+    note: "6:00 to 8:00 PM · Broad Multipurpose Room",
+  },
+  {
+    date: "2026-11-13",
+    endDate: "2026-11-14",
+    dateDisplay: {
+      month: "NOV",
+      day: "13",
+      endDay: "14",
+      weekday: "Friday to Saturday",
+    },
+    title: "Fall Trip",
+    description:
+      "A two-day trip exploring Detroit's startup and business scene.",
+    note: "Detroit, MI",
+  },
+  {
+    date: "2026-11-16",
+    dateDisplay: { month: "NOV", day: "16", weekday: "Monday" },
+    title: "ESHIP Pitch Competition",
+    description:
+      "Student founders pitch their ideas, hosted by EA, WE, and Limitless.",
+    note: "6:00 to 8:00 PM · Broad Multipurpose Room",
+  },
+  {
+    date: "2026-11-17",
+    dateDisplay: { month: "NOV", day: "17", weekday: "Tuesday" },
+    title: "Lunch and Learn with the Co-Founders of Tandem",
+    description:
+      "A lunch session with Tandem's co-founders, open to MBA students.",
+    note: "11:45 AM to 12:25 PM · M200",
+  },
+  {
+    date: "2026-11-18",
+    dateDisplay: { month: "NOV", day: "18", weekday: "Wednesday" },
+    title: "Monetizing a Skill on the Internet",
+    description:
+      "How to turn a skill into income online. Guest speaker to be announced.",
     note: "6:30 to 7:30 PM · Entrepreneurship Lab",
   },
 ];

@@ -1,7 +1,8 @@
 # MSU Entrepreneurship Association website
 
 Next.js 16 static export, Tailwind v4, deployed to GitHub Pages by
-`.github/workflows/deploy.yml` on every push to `main`.
+`.github/workflows/deploy.yml` on every push to `main`, plus a nightly
+rebuild so the static HTML already shows the right upcoming events.
 
 - Preview: https://nradachy-web.github.io/msuea/ (noindex)
 - Production target: https://www.msuea.org (see `docs/LAUNCH.md`)
@@ -21,8 +22,9 @@ Design system notes: `docs/DESIGN.md`. Content rules: `docs/CONTENT.md`.
    `gh variable set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY --repo nradachy-web/msuea --body "<key>"`
    and re-run the deploy workflow.
 2. **Domain cutover.** Runbook in `docs/LAUNCH.md`.
-3. **Event calendar.** The club is finalizing the fall calendar; add
-   events to `UPCOMING_EVENTS` in constants as they confirm.
+3. **Event calendar.** Add or edit events in `EVENTS` in constants.
+   The "Locked in" list, the homepage "Up next" card, and the month
+   calendar all read from it and roll forward by date on their own.
 
 ## Local build
 

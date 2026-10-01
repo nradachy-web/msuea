@@ -5,13 +5,11 @@ import {
   BRAND,
   PROGRAMS,
   TICKER_ITEMS,
-  UPCOMING_EVENTS,
   SPONSORS,
   MEMBERSHIP_QUOTE,
 } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
-import DaysOut from "@/components/ui/DaysOut";
 import EaMark from "@/components/ui/EaMark";
 import HeroVideo from "@/components/ui/HeroVideo";
 import SpartanHelmet from "@/components/ui/SpartanHelmet";
@@ -21,6 +19,7 @@ import Reveal from "@/components/ui/Reveal";
 import VentureMarquee from "@/components/ui/VentureMarquee";
 import EmailSignup from "@/components/ui/EmailSignup";
 import JoinCta from "@/components/ui/JoinCta";
+import UpcomingEvents from "@/components/ui/UpcomingEvents";
 
 const HERO_CLIPS = [
   "/videos/hero-a.mp4",
@@ -29,8 +28,6 @@ const HERO_CLIPS = [
 ];
 
 export default function HomePage() {
-  const nextEvent = UPCOMING_EVENTS[0];
-
   return (
     <>
       {/* ============ HERO: gameday poster ============ */}
@@ -262,41 +259,7 @@ export default function HomePage() {
           </Reveal>
           <div className="mt-12 grid gap-5 lg:grid-cols-[1.5fr_1fr]">
             <Reveal>
-              {nextEvent ? (
-                <article className="notch flex h-full flex-col gap-6 bg-white p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-9">
-                  <div className="display flex w-24 shrink-0 flex-col items-center bg-forest px-4 py-5 text-white">
-                    <span className="text-sm tracking-[0.2em] text-mint">
-                      {nextEvent.dateDisplay.month}
-                    </span>
-                    <span className="text-5xl">{nextEvent.dateDisplay.day}</span>
-                  </div>
-                  <div>
-                    <h3 className="display text-3xl text-forest">
-                      {nextEvent.title}
-                    </h3>
-                    <p className="mt-2 max-w-md leading-relaxed text-body">
-                      {nextEvent.description}
-                    </p>
-                    <div className="mt-4 flex flex-wrap items-center gap-3">
-                      <DaysOut date={nextEvent.date} />
-                      <p className="display text-[0.8rem] tracking-[0.12em] text-kelly">
-                        {nextEvent.note}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              ) : (
-                <article className="notch flex h-full flex-col justify-center bg-white p-7 sm:p-9">
-                  <h3 className="display text-3xl text-forest">
-                    New dates landing soon
-                  </h3>
-                  <p className="mt-2 max-w-md leading-relaxed text-body">
-                    The next calendar is being finalized. Follow along on
-                    Instagram or join the email list below and every date
-                    reaches you as it locks in.
-                  </p>
-                </article>
-              )}
+              <UpcomingEvents count={1} variant="feature" />
             </Reveal>
             <Reveal delay={100}>
               <div className="notch flex h-full flex-col justify-between bg-forest p-7 text-white sm:p-9">

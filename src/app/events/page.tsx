@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { Mail, Megaphone, Users } from "lucide-react";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/BrandIcons";
-import { BRAND, UPCOMING_EVENTS } from "@/lib/constants";
-import { asset } from "@/lib/asset";
+import { BRAND } from "@/lib/constants";
 import EaMark from "@/components/ui/EaMark";
-import Parallax from "@/components/ui/Parallax";
-import DaysOut from "@/components/ui/DaysOut";
+import EventCalendar from "@/components/ui/EventCalendar";
 import Reveal from "@/components/ui/Reveal";
+import UpcomingEvents from "@/components/ui/UpcomingEvents";
 import EmailSignup from "@/components/ui/EmailSignup";
 import JoinCta from "@/components/ui/JoinCta";
 import PageHero from "@/components/ui/PageHero";
@@ -14,7 +13,7 @@ import PageHero from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Confirmed MSUEA events at Michigan State, plus how every event drops: announced on Instagram first, with signup links on the email list and the WhatsApp community.",
+    "Upcoming MSUEA events at Michigan State and the full semester calendar, plus how every event drops: announced on Instagram first, with signup links on the email list and the WhatsApp community.",
   alternates: { canonical: "/events/" },
 };
 
@@ -46,7 +45,7 @@ export default function EventsPage() {
       <PageHero
         eyebrow="Events"
         title="On the calendar"
-        intro="The fall calendar is being finalized, so this page lists only what is confirmed. New dates land on Instagram and the email list first, then here."
+        intro="The next two events are up top, and the calendar holds the whole semester. New dates land on Instagram and the email list first, then here."
       />
 
       {/* ============ CONFIRMED EVENTS ============ */}
@@ -58,59 +57,20 @@ export default function EventsPage() {
               Locked in
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+          <div className="mt-12 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-start">
             <div>
-              <div className="space-y-5">
-                {UPCOMING_EVENTS.map((event, i) => (
-                  <Reveal key={event.date + event.title} delay={i * 70}>
-                    <article className="notch flex flex-col gap-6 border-t-4 border-kelly bg-white p-7 sm:flex-row sm:items-center sm:gap-8 sm:p-9">
-                      <div className="display flex w-24 shrink-0 flex-col items-center bg-forest px-4 py-5 text-white">
-                        <span className="text-sm tracking-[0.2em] text-mint">
-                          {event.dateDisplay.month}
-                        </span>
-                        <span className="text-5xl">{event.dateDisplay.day}</span>
-                      </div>
-                      <div>
-                        <h3 className="display text-3xl text-forest sm:text-4xl">
-                          {event.title}
-                        </h3>
-                        <p className="mt-2 max-w-2xl leading-relaxed text-body">
-                          {event.description}
-                        </p>
-                        <div className="mt-4 flex flex-wrap items-center gap-3">
-                          <DaysOut date={event.date} />
-                          <p className="display text-[0.8rem] tracking-[0.12em] text-kelly">
-                            {event.dateDisplay.weekday} · {event.note}
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </Reveal>
-                ))}
-              </div>
+              {/* the next two events; rolls forward as dates pass */}
+              <UpcomingEvents count={2} variant="list" />
               <Reveal className="mt-10" delay={100}>
                 <p className="max-w-2xl text-muted">
-                  More is on the way. The full fall calendar is being finalized,
-                  and every new date is announced on {BRAND.instagramHandle} and
-                  the email list before it appears here.
+                  The full semester is on the calendar. Signup links and any
+                  changes are announced on {BRAND.instagramHandle} and the
+                  email list first.
                 </p>
               </Reveal>
             </div>
-            {/* framed screen-print, drifting gently */}
             <Reveal delay={150}>
-              <Parallax speed={0.05}>
-                <figure className="notch bg-white p-3">
-                  <img
-                    src={asset("/images/art/events-1200.jpg")}
-                    alt=""
-                    loading="lazy"
-                    className="aspect-[4/3.5] w-full object-cover"
-                  />
-                  <figcaption className="display mt-3 px-1 pb-1 text-[0.8rem] tracking-[0.12em] text-kelly">
-                    Every drop starts loud.
-                  </figcaption>
-                </figure>
-              </Parallax>
+              <EventCalendar />
             </Reveal>
           </div>
         </div>

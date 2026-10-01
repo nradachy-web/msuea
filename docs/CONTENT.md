@@ -38,11 +38,16 @@ Membership questions in general: Katyra Waller, waller10@msu.edu.
 
 ## Events
 
-- Only confirmed upcoming event: MSUEA x Recharged Pilates collab on
-  Tuesday, September 22, 2026. Limited spots; a signup form will be
-  announced on Instagram and the email list. NO other event dates,
-  times, or locations exist yet. The full fall calendar is being
-  finalized.
+- The full Fall Semester 2026 schedule (ten events, October 7 through
+  November 18) came from Brandon Matthews, Director of Marketing, by
+  email on 10/1/2026. It lives in `EVENTS` in constants.ts, verbatim.
+  Do not add dates, times, rooms, or speakers the club has not sent.
+- The events page "Locked in" list shows the next two events and the
+  homepage "Up next" card shows the next one. Both pick by date in the
+  visitor's browser, so nothing needs editing as dates pass. The month
+  calendar beside the list shows every event in `EVENTS`.
+- Still open with the club: the RDPD workshop location (TBD), and
+  which building rooms M235 and M200 are in.
 - Events are announced on Instagram (@msu.ea) first, plus the email
   list and WhatsApp.
 
